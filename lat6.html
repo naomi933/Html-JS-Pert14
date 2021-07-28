@@ -1,0 +1,137 @@
+<html>
+<head>
+	<title>Program Penjualan Motor</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function hitungtotal(){
+
+			var nama = (document.form.inama.value);
+			var merk = (document.form.merk.value);
+			var sub = 0.0;
+			var diskon = 0.0;
+			var total = 0.0;
+			if (merk == "Honda") {
+
+				ht = 1500000000;
+			}
+			else if(merk == "Yamaha")
+			{
+				ht = 1400000000;
+			}
+			else
+			{
+				ht = 1300000000;
+			}
+
+			if (document.form.Velg.checked) {
+
+				ht = 450000;
+			}
+			else if(document.form.Helm.checked)
+			{
+				ht = 250000;
+			}
+			else
+			{
+				ht = 300000;
+			}
+
+			harga = merk+aksesoris
+
+			if (document.form.tunai.checked == true) 
+			{
+				diskon = 0.10*harga
+				total = harga - diskon
+			}
+			else
+			{
+				bunga = 0.15*harga
+				total = harga + bunga
+			}
+			document.form.otiket.value=eval(ht);
+			document.form.osub.value=eval(sub);
+			document.form.odiskon.value=eval(diskon);
+			document.form.ototal.value=eval(total);
+		}
+
+	</script>
+<form name="form" onchange="hitungtotal()">
+<table border=2 width="50%" bgcolor="#e1e1d0">
+	<tr>
+		<td>
+		<h2>PROGRAM PENJUALAN MOTOR</h2>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Nama Pembeli</td>
+		<td><input type="text" name="inama" size="25" placeholder="Nama Anda.."> </td>
+	</tr>		
+		<tr>
+			<td>
+				Merk Motor
+			</td>
+			<td>
+				<select name="merk">
+					<option selected>Pilih Motor</option>
+					<option value="Honda">Honda</option>
+					<option value="Yamaha">Yamaha</option>
+					<option value="Suzuki">Suzuki</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Aksesoris
+			</td>
+			<td>
+				<input type="checkbox" name="velg">Velg Racing
+				<input type="checkbox" name="helm">Helm
+				<input type="checkbox" name="jaket">Jaket
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Cara Pembayaran
+			</td>
+			<td>
+				<input type="radio" name="carapembayaran" value="tunai">Tunai
+				<input type="radio" name="carapembayaran" value="kredit">Kredit
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Harga
+			</td>
+			<td>
+				<input type="text" size="10" name="osub">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Bunga/Diskon
+			</td>
+			<td>
+				<input type="text" size="10" name="odiskon">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Total Bayar
+			</td>
+			<td>
+				<input type="text" name="ototal" size="10"> 
+			</td>
+		</tr>	
+		<tr>
+			<td></td>
+			<td>
+				<input type="button" value="Hitung" Onclick="hitungtotal()">
+				<input type="reset" value="Ulangi" >
+			</td>
+		</tr>
+</table>
+</form>
+</body>
+</html>

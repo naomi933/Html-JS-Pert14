@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Program Penjualan Barang</title>
+    <script language="javascript">
+        function hitung()
+        {
+            var harga = parseFloat (document.isianku.harga.value);
+            if (isNaN (harga)) 
+            {
+                harga=0.0;
+            }
+
+            var jumlah = parseFloat (document.isianku.jumlah.value);
+            if (isNaN (jumlah)) 
+            {
+                jumlah=0.0;    
+            }
+
+            var diskon = parseFloat (document.isianku.diskon.value);
+
+            var total_beli = harga*jumlah;
+            document.isianku.total_beli.value="Rp "+total_beli;
+
+            var diskon = total_beli * 0.1;
+            document.isianku.diskon.value="Rp "+diskon;
+
+            var total_bayar = total_beli - diskon;
+            document.isianku.bayar.value="Rp "+total_bayar;
+        }
+    </script>
+</head>
+<body>
+    <form name="isianku">
+       <table border=2 width="50%" bgcolor="#e1e1d0">
+        <center>
+            <tr align="center">
+                <td width="50%" colspan="2"><h1>Program Penjualan Barang</h1></td>
+            </tr>
+            <tr align="left">
+                <th>Nama Barang / Product:</th>
+                <td><input type="text" style="width:90%" name="nama"></td>
+            </tr>
+            <tr align="left">
+                <th>Harga Barang / Product:</th>
+                <td><input type="text" style="width:90%" name="harga"></td>
+            </tr>
+            <tr align="left">
+                <th>Jumlah Barang / Product:</th>
+                <td><input type="text" style="width:35%" name="jumlah">&nbsp;</td>
+            </tr>
+            <tr align="left">
+                <th>Total Pembelian</th>
+                <td><input type="text" style="width:90%" name="total_beli"></td>
+            </tr>
+            <tr align="left">
+                <th>Diskon</th>
+                <td><input type="text" style="width:90%" name="diskon"></td>
+            </tr>
+            <tr align="left">
+                <th>Total Bayar</th>
+                <td><input type="text" style="width:90%" name="bayar"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><br>
+                    <input type="button" value="HITUNG" onclick="hitung ()">&nbsp;
+                    <input type="reset" value="RESET">
+                    <br>
+                    <br>
+                </td>
+            </tr>
+        </center>
+    </table>
+</form>
+</body>
+</html>

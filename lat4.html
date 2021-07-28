@@ -1,0 +1,130 @@
+
+<html>
+<head>
+	<title>Form Pembelian Barang</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function hitungtotal(){
+
+			var nama = (document.form.inama.value);
+			var namabarang = (document.form.namabarang.value);
+			var jumlahbarang = parseFloat (document.form.ijumlah.value);
+			var ht = 0.0 ;
+			var sub = 0.0;
+			var diskon = 0.0;
+			var total = 0.0;
+			if (namabarang == "Monitor") {
+
+				ht = 2000000;
+			}
+			else if(namabarang == "CPU")
+			{
+				ht = 2500000;
+			}
+			else
+			{
+				ht = 1500000;
+			}
+
+			sub = jumlahbarang*ht;
+
+			if (document.form.imamber.checked == true) 
+			{
+				diskon = 0.10 * sub;
+			}
+			else
+			{
+				diskon=0.0;
+			}
+			total = sub - diskon;
+			document.form.otiket.value=eval(ht);
+			document.form.osub.value=eval(sub);
+			document.form.odiskon.value=eval(diskon);
+			document.form.ototal.value=eval(total);  
+		}
+
+	</script>
+<form name="form" onchange="hitungtotal()">
+<table border=2 width="50%" bgcolor="#e1e1d0">
+	<tr>
+		<td>
+		<h2>Form Pembelian Barang</h2>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Nama Pembeli</td>
+		<td><input type="text" name="inama" size="25" placeholder="Nama Anda.."> </td>
+	</tr>		
+		<tr>
+			<td>
+				Nama Barang
+			</td>
+			<td>
+				<select name="namabarang">
+					<option value="Monitor">Monitor</option>
+					<option value="CPU">CPU</option>
+					<option value="VGA">VGA</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Jumlah Barang
+			</td>
+			<td>
+				<input type="text" size="15" name="ijumlah" placeholder="Jumlah Barang Anda..">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Member
+			</td>
+			<td>
+				<input type="checkbox" name="imamber">Ya
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Harga Barang
+			</td>
+			<td>
+				<input type="text" size="10" name="otiket">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Sub Total
+			</td>
+			<td>
+				<input type="text" size="10" name="osub">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Diskon 10%
+			</td>
+			<td>
+				<input type="text" size="10" name="odiskon">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Total Bayar
+			</td>
+			<td>
+				<input type="text" name="ototal" size=10> 
+			</td>
+		</tr>	
+		<tr>
+			<td></td>
+			<td>
+				<input type="button" value="Hitung" Onclick="hitungtotal()">
+				<input type="reset" value="Reset" >
+			</td>
+		</tr>
+</table>
+</form>
+</body>
+</html>

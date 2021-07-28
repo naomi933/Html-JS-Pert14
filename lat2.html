@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Program Penggajian Pegawai</title>
+    <script language="javascript">
+        function hitung()
+        {
+            var jam = parseFloat (document.isianku.jam.value);
+            if (isNaN (jam)) 
+            {
+                jam=0.0;
+            }
+
+            var upah = parseFloat (document.isianku.upah.value);
+            if (isNaN (upah)) 
+            {
+                upah=0.0;    
+            }
+
+            var tunjangan = parseFloat (document.isianku.tunjangan.value);
+
+            var gaji = jam*upah;
+            document.isianku.gaji.value="Rp "+gaji;
+
+            var tunjangan = gaji * 0.1;
+            document.isianku.tunjangan.value="Rp "+tunjangan;
+
+            var total = gaji + tunjangan;
+            document.isianku.total.value="Rp "+total;
+        }
+    </script>
+</head>
+<body>
+    <form name="isianku">
+       <table border=2 width="50%" bgcolor="#e1e1d0">
+        <center>
+            <tr align="center">
+                <td width="50%" colspan="2"><h1>Program Penggajian Pegawai</h1></td>
+            </tr>
+            <tr align="left">
+                <th>Nama Pegawai </th>
+                <td><input type="text" style="width:90%" name="nama"></td>
+            </tr>
+            <tr align="left">
+                <th>Jam Kerja </th>
+                <td><input type="text" style="width:90%" name="jam"></td>
+            </tr>
+            <tr align="left">
+                <th>Upah per Jam </th>
+                <td><input type="text" style="width:35%" name="upah">&nbsp;</td>
+            <tr align="left">
+                <th>Jumlah Anak </th>
+                <td><input type="text" style="width:90%" name="anak"></td>
+            </tr>
+            </tr>
+            <tr align="left">
+                <th>Gaji </th>
+                <td><input type="text" style="width:90%" name="gaji"></td>
+            </tr>
+            <tr align="left">
+                <th>Tunjangan Anak 10% </th>
+                <td><input type="text" style="width:90%" name="tunjangan"></td>
+            </tr>
+            <tr align="left">
+                <th>Total Gaji </th>
+                <td><input type="text" style="width:90%" name="total"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><br>
+                    <input type="button" value="HITUNG" onclick="hitung ()">&nbsp;
+                    <input type="reset" value="RESET">
+                    <br>
+                    <br>
+                </td>
+            </tr>
+        </center>
+    </table>
+</form>
+</body>
+</html>

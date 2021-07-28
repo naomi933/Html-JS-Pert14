@@ -1,0 +1,95 @@
+
+<html>
+<head>
+	<title>Form Pembelian Barang</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function hitungtotal(){
+
+			var nama = (document.form.inama.value);
+			var namabarang = (document.form.namabarang.value);
+			var jumlah = parseFloat (document.form.jumlah.value);
+			var ht = 0.0 ;
+			var harga = 0.0 ;
+			var total = 0.0;
+			if (namabarang == "Monitor") {
+
+				ht = 2000000;
+			}
+			else if(namabarang == "CPU")
+			{
+				ht = 2500000;
+			}
+			else
+			{
+				ht = 1500000;
+			}
+
+			var total = jumlah*ht;
+			document.form.harga.value=eval(ht);
+			document.form.total.value=eval(total);
+		}
+
+	</script>
+<form name="form" onchange="hitungtotal()">
+<table border=2 width="50%" bgcolor="#e1e1d0">
+
+	<tr>
+		<td>
+		<h2><center>Form Pembelian Barang</center></h2>
+		</td>
+	</tr>
+
+	<tr>
+		<td>Nama</td>
+		<td><input type="text" name="inama" size="25" placeholder="Nama Anda.."> </td>
+	</tr>		
+		<tr>
+			<td>
+				Nama Barang
+			</td>
+			<td>
+				<select name="namabarang">
+					<option value="Monitor">Monitor</option>
+					<option value="CPU">CPU</option>
+					<option value="VGA">VGA</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Jumlah Barang
+			</td>
+			<td>
+				<input type="text" size="15" name="jumlah" placeholder="Jumlah Barang Anda..">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Harga Barang
+			</td>
+			<td>
+				<input type="text" size="10" name="harga">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Total
+			</td>
+			<td>
+				<input type="text" size="10" name="total">
+			</td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				<input type="button" value="Hitung" Onclick="hitungtotal()">
+				<input type="reset" value="Reset" >
+			</td>
+		</tr>
+</table>
+</form>
+</body>
+</html>
